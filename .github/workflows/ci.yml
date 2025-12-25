@@ -25,7 +25,7 @@ jobs:
         with:
           image-ref: devsecops-aws-app:ci
           scanners: vuln
-          vuln-type: os,librery
+          vuln-type: os,library
           severity: HIGH,CRITICAL
           exit-code: 1
           ignore-unfixed: true
