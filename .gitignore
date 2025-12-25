@@ -1,1 +1,16 @@
+# Node
+node_modules
+npm-debug.log
+
+# Terraform
+infra/.terraform
+infra/terraform.tfstate*
+infra/terraform.tfvars
+
+# AWS / SSH
+*.pem
+.aws
+.ssh
+
+# OS
 .DS_Store
