@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
   web:
+    image: devsecops-aws-app:ci
     build: ./app
     container_name: devsecops-aws-app
     ports:
