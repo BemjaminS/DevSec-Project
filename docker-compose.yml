@@ -4,9 +4,9 @@ services:
   web:
     image: devsecops-aws-app:ci
     build: ./app
-    container_name: devsecops-aws-app
     ports:
       - "80:3000"
     environment:
       - NODE_ENV=production
+      - BUILD_ID=${BUILD_ID}
     restart: unless-stopped

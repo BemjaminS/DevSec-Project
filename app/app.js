@@ -1,3 +1,4 @@
+const { time } = require("console");
 const express = require("express");
 const os = require("os");
 
@@ -22,12 +23,14 @@ app.get("/", (req, res) => {
 
 //healthcheck to Route
 app.get("/health", (req, res) => {
-  res.json({ status: "healthy" });
+  res.json({
+    status: "healthy",
+    host: os.hostname(),
+    time: new Date().toISOString(),
+    build: process.env.BUILD_ID || "local-dev"
+  });
 });
 
-app.get("/time", (req, res) => {
-  res.send("DEPLOY CHECK - " + new Date().toISOString());
-});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
