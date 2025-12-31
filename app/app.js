@@ -25,6 +25,10 @@ app.get("/health", (req, res) => {
   res.json({ status: "healthy" });
 });
 
+app.get("/time", (req, res) => {
+  res.send("DEPLOY CHECK - " + new Date().toISOString());
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

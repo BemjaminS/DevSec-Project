@@ -94,7 +94,7 @@ resource "aws_instance" "web" {
   user_data = <<-EOF
               #!/bin/bash
               sudo dnf update -y
-              sudo dnf install -y docker git
+              sudo dnf install -y docker git rsync
               sudo systemctl enable docker
               sudo systemctl start docker
 
