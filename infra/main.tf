@@ -102,6 +102,16 @@ resource "aws_instance" "web" {
               sudo curl -SL "https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-x86_64" -o /usr/local/lib/docker/cli-plugins/docker-compose
               sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
 
+              useradd -m deploy || true
+              usermod -aG docker deploy
+
+              cd /home/deploy
+              git clone https://github.com/BemjaminS/DevSec-Project.git
+              chown -R deploy:deploy /home/deploy/DevSec-Project
+
+              cd /home/deploy/DevSec-Project
+              docker compose up -d --build
+
               EOF
 
   tags = {
